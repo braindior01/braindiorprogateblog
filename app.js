@@ -77,10 +77,10 @@ app.use(passport.session());
 
 // setup database
 const con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "1234",
-  database: "progate_db",
+  host: "sql6.freemysqlhosting.net",
+  user: "sql6482813",
+  password: "xkpZqDJPRd",
+  database: "sql6482813",
 });
 con.connect((err) => {
   if (err) throw err;
