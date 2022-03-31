@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Progate</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <h1>Hi <%= username %>!</h1>
+  <h3>Blog Detail Page</h3>
+
+  <div>
+    <p>Title : <%= blog.title %></p>
+    <p>Description : <%= blog.description %></p>
+
+    <hr>
+    <hr>
+
+    <h4>Comments</h4>
+
+    <form action="/blogs/<%= blog.id %>/comment" method="POST">
+      <div>
+        <textarea type="text" id="comment" name="comment" placeholder="Enter a Comment" cols="30" rows="3"></textarea>
+      </div>
+      <button type="submit">Comment</button>
+    </form>
+
+    <% if (comments.length !=0){ %>
+      <% for (const el of comments) { %>
+        <div>
+          <p>
+            <%= el.comment %>
+          </p>
+          <p><small>Created by <%= el.username %></small></p>
+          <hr>
+        </div>
+      <% } %>
+    <% } %>
+  </div>
+
+  <div>
+    <a href="/blogs">Back to Blog Page</a>
+  </div>
+  <div>
+    <a href="/users/logout">Logout</a>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Progate</title>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <h1>Hi <%= username %>!</h1>
+  <h3>Blog Page</h3>
+
+  <form action="/blogs" method="POST">
+    <div>
+      <label for="title" style="display: block;">Title</label>
+      <input type="text" id="title" name="title" placeholder="Enter Blog Title" />
+    </div>
+    <div style="margin: 10px 0;">
+      <label for="description" style="display: block;">Description</label>
+      <textarea type="text" id="description" name="description" placeholder="Enter Blog Description" cols="30" rows="10"></textarea>
+    </div>
+    <button type="submit">Create</button>
+  </form>
+
+  <hr>
+  <hr>
+
+  <% if (blogs.length != 0){ %>
+    <% for (const blog of blogs) { %>
+      <div>
+        <a href="/blogs/<%= blog.id %>">
+          <h3>Title : <%= blog.title %>
+          </h3>
+        </a>
+        <p>Description : <%= blog.description %>
+        </p>
+
+        <hr>
+      </div>
+    <% } %>
+  <% } %>
+
+  <div>
+    <a href="/users/logout">Logout</a>
+  </div>
+</body>
+
+</html>
